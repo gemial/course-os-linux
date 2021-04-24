@@ -1,22 +1,24 @@
-[![Build Status](https://travis-ci.org/gemial/course-os-linux.svg?branch=main)](https://travis-ci.org/gemial/course-os-linux)
+[![Build Status](https://travis-ci.com/gemial/course-os-linux.svg?branch=main)](https://travis-ci.com/gemial/course-os-linux)
 
 # course-os-linux
-Сайт курса "перационная система Linux"
+Сайт курса "операционная система Linux" для 4 семестра БТ ФМБФ МФТИ
 
-1. Терминал Linux, файловая структура Linux, программа df
-1. Программы работы с директориями ls, cd, ...
-1. Потоки stdin, stdout, stderr, перенаправление потоков
-1. Основные программы для работы в терминале Linux (grep, sed, ...)
-1. Переменные окружения. PS1, TERM, LANG, PATH, ... Утилита export
-1. Файловый редактор vim
-1. Скрипты и переменные в bash
-1. Ветвление в bash
-1. Цикл while
-1. Цикл for
-1. Работа с процессами (jobs, bg, fg)
-1. Мультиплексор ??? tmux
-1. Python модуль sys
-1. Python модуль os
-1. git
-1. git branch
+|  №  |                             Название                             | Выполняет |
+|-----|------------------------------------------------------------------|-----------|
+|  1. | Терминал Linux, файловая структура Linux, программа df           |           |
+|  2. | Программы работы с директориями ls, cd, ...                      |           |
+|  3. | Потоки stdin, stdout, stderr, перенаправление потоков            |           |
+|  4. | Основные программы для работы в терминале Linux (grep, sed, ...) |           |
+|  5. | Переменные окружения. PS1, TERM, LANG, PATH, ... Утилита export  |           |
+|  6. | Файловый редактор vim                                            |           |
+|  7. | Скрипты и переменные в bash                                      |           |
+|  8. | Ветвление в bash                                                 |           |
+|  9. | Цикл while                                                       |           |
+| 10. | Цикл for                                                         |           |
+| 11. | Работа с процессами (jobs, bg, fg)                               |           |
+| 12. | Мультиплексор ??? tmux                                           |           |
+| 13. | Python модуль sys                                                |           |
+| 14. | Python модуль os                                                 |           |
+| 15. | git                                                              |           |
+| 16. | git branch                                                       |           |
 
