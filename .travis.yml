@@ -9,7 +9,7 @@ script:
 - make html
 branches:
   only:
-  - master
+  - main
 notifications:
   email:
     on_success: change
