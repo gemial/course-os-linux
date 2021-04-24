@@ -10,7 +10,7 @@ import sys
 sys.path.append(os.curdir)
 from pelicanconf import *
 
-SITEURL = 'http://cs.mipt.ru/algo'
+SITEURL = 'http://cs.mipt.ru/gertsev/os-linux'
 RELATIVE_URLS = False
 
 FEED_ALL_ATOM = None

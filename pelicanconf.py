@@ -6,7 +6,7 @@ import os
 
 AUTHOR = 'Gertsev Michael'
 SITENAME = 'Операционная система Linux'
-SITEURL = 'http://cs.mipt.ru/gertsev/os-linux'
+SITEURL = '/'
 
 PATH = 'content'
 
