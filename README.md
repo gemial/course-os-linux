@@ -1,5 +1,4 @@
-[![Build Status](https://travis-ci.org/gemial/course-os-linux.svg?branch=master)](https://travis-ci.org/gemial/course-os-linux)
-
+[![Build Status](https://travis-ci.org/gemial/course-os-linux.svg?branch=main)](https://travis-ci.org/gemial/course-os-linux)
 
 # course-os-linux
 Сайт курса "перационная система Linux"
