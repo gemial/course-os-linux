@@ -16,6 +16,8 @@
 1. Цикл for
 1. Работа с процессами (jobs, bg, fg)
 1. Мультиплексор ??? tmux
+1. Python модуль sys
+1. Python модуль os
 1. git
 1. git branch
 
