@@ -168,7 +168,7 @@ rename-session –t 0 masinc»
 
 .. code:: bash
 
-    Tmux switch –t `name <Где%20name%20имя%20сессии>`__
+    Tmux switch –t `name`
 
 Для прокрутки страницы вверх используйте комбинацию клавиш «Ctrl+B»
 «PgUp/PgDwn»
@@ -187,29 +187,45 @@ rename-session –t 0 masinc»
 
 .. code:: bash
 
-    ctrl + b + c
+    ctrl + b 
+
+.. code:: bash
+
+    c
 
 переименовать файл можно:
 
-ctrl + b + , 
+.. code:: bash
+
+    ctrl + b + , 
 
 Выход из тмукса:
 
-ctrl + b + d
+.. code:: bash
+
+    ctrl + b + d
 
 Разделить окно по вертикали:
 
-ctrl + b + %
+.. code:: bash
+
+    ctrl + b + %
 
 Разделить окно по горизонтали:
 
-ctrl + b + "
+.. code:: bash
+
+    ctrl + b + "
 
 Переход между окнами: (к правому окну)
 
-ctrl + b + -> 
+.. code:: bash
+
+    ctrl + b + -> 
 
 Открыть диспетчер задач:
 
-htop
+.. code:: bash
+
+    htop
 
