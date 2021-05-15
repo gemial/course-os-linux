@@ -1,6 +1,11 @@
 Скрипты и переменные в bash
 ===========================
 
+:date: 2021-05-14
+:summary: Описание лабы
+:status: published
+:author: Барыкин А.
+
 Теоретическое введение
 ~~~~~~~~~~~~~~~~~~~~~~
 
@@ -237,8 +242,8 @@ bash-скриптах:
 
 .. code:: bash
 
-    #!/bin/bash 
-    # display user home 
+    #!/bin/bash
+    # display user home
     echo "Home for the current user is: $HOME"
 
 
@@ -263,10 +268,10 @@ bash-скриптах:
 
 .. code:: bash
 
-    #!/bin/bash 
-    # testing variables 
+    #!/bin/bash
+    # testing variables
     grade=7
-    student="Alexey" 
+    student="Alexey"
     echo "$student worked hard this semester, his grade will be $grade or more"
 
 
@@ -284,8 +289,8 @@ bash-скриптах:
 
 .. code:: bash
 
-    #!/bin/bash 
-    mydir=$(pwd) 
+    #!/bin/bash
+    mydir=$(pwd)
     echo $mydir
 
 
