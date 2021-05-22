@@ -62,7 +62,7 @@ me@linuxbox:~$ jninijqojwo
 
 Поскольку это бессмыслица, командная оболочка немедленно сообщит об этом и даст вам второй шанс:
 
-.. code-block:: bash
+.. code:: bash
 
 bash: kaekfjaeifj: команда не найдена
 
