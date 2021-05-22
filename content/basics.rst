@@ -58,13 +58,13 @@
  
 .. code-block:: bash
 
-me@linuxbox:~$ jninijqojwo
+     me@linuxbox:~$ jninijqojwo
 
 Поскольку это бессмыслица, командная оболочка немедленно сообщит об этом и даст вам второй шанс:
 
 .. code:: bash
 
-bash: kaekfjaeifj: команда не найдена
+     bash: kaekfjaeifj: команда не найдена
 
 
 2. В качестве второй практической части рассмотрим простые команды:
@@ -73,7 +73,7 @@ bash: kaekfjaeifj: команда не найдена
 
 .. code-block:: bash
 
-me@linuxbox:~$ date
+     me@linuxbox:~$ date
 
 .. code-block:: bash
 
@@ -83,13 +83,13 @@ Mon May 11 13:51:54 EDT 2021
 
 .. code-block:: bash
 
-me@linuxbox:~$ cal
+      me@linuxbox:~$ cal
 
 Третья команда: free. Она позволяет увидеть объем свободного пространства в памяти:
 
 .. code-block:: bash
 
-me@linuxbox:~$ free
+      me@linuxbox:~$ free
 
 Файловая структура Linux
 =========================
