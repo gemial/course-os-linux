@@ -1,6 +1,6 @@
 Ветвление в Bash (case, if)
 \\\\\\\\\\\\\\\\\\\\\\\\\\\
-:date: 2021-05-15
+:date: 2021-15-05
 :summary: Описание лабы
 :status: published
 :author: Климов К.А
