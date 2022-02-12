@@ -1,9 +1,9 @@
-Потоки stdin, stdout, stderr, перенаправление потока
+Потоки
 ######################################################
 
-:date: 2021-05-13
-:summary: Описание лабы
-:status: draft
+:date: 2022-02-04
+:summary: Потоки stdin, stdout, stderr, перенаправление потока
+:status: published
 :author: Кропивницкая Н. В.
 
 .. contents:: **Содержание**
