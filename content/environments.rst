@@ -3,7 +3,7 @@
 
 :date: 2021-05-14
 :summary: тема номер 5, переменные окружения в Linux
-:status: published
+:status: draft
 :author: Маликов Артур
 
 .. default-role:: code

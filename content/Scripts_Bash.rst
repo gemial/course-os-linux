@@ -3,7 +3,7 @@
 
 :date: 2021-05-14
 :summary: Описание лабы
-:status: published
+:status: draft
 :author: Барыкин А.
 
 Теоретическое введение

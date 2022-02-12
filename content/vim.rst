@@ -3,7 +3,7 @@
 
 :date: 2021-05-22 09:00
 :summary: Описание лабы
-:status: published
+:status: draft
 :author: Швецова М.А.
 
 .. default-role:: code

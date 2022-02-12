@@ -2,7 +2,7 @@
 =========================================
 :date: 2020-05-22
 :summary: Работа с циклом while
-:status: published
+:status: draft
 :author: Тин П.А.
 
 .. default-role:: code

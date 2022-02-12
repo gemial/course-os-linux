@@ -2,7 +2,7 @@
 ###############################################
 :date: 2020-05-16 15:20
 :summary:  Работа с процессами (jobs, bg, fg) 
-:status: published
+:status: draft
 :author: Шатров П.А.
 
 

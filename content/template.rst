@@ -3,7 +3,7 @@
 
 :date: 2020-10-07 09:00
 :summary: Описание лабы
-:status: published
+:status: draft
 :author: Герце М.Н.
 
 .. default-role:: code

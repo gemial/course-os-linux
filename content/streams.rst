@@ -3,7 +3,7 @@
 
 :date: 2021-05-13
 :summary: Описание лабы
-:status: published
+:status: draft
 :author: Кропивницкая Н. В.
 
 .. contents:: **Содержание**

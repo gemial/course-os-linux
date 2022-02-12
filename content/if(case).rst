@@ -2,7 +2,7 @@
 \\\\\\\\\\\\\\\\\\\\\\\\\\\
 :date: 2021-05-15
 :summary: Описание лабы
-:status: published
+:status: draft
 :author: Климов К.А
 
 

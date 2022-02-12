@@ -3,7 +3,7 @@
 
 :date: 2021-05-16
 :summary: Лаба
-:status: published
+:status: draft
 :author: Кауров Р.О.
 
 
