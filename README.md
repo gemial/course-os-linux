@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.com/gemial/course-os-linux.svg?branch=main)](https://travis-ci.com/gemial/course-os-linux)
+[![html_deploy](https://github.com/gemial/course-os-linux/actions/workflows/html_deploy.yml/badge.svg)](https://github.com/gemial/course-os-linux/actions/workflows/html_deploy.yml)
 
 # course-os-linux
 Сайт курса "операционная система Linux" для 4 семестра БТ ФМБФ МФТИ
