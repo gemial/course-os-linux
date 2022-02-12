@@ -3,6 +3,7 @@
 
 :date: 2021-05-10
 :summary: Описание лабы
+:status: draft
 :author: Бекбаева И.В.
 
 .. contents:: Содержание

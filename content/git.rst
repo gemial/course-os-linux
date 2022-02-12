@@ -3,6 +3,7 @@
 :date: 21.05.2021
 :summary: Описание лабы
 :author: Соловьёв М.А.
+:status: draft
 
 .. default-role:: code
 .. contents:: Содержание
