@@ -2,7 +2,7 @@ name: html_deploy
 on:
   push:
     branches:
-      - master
+      - main
 jobs:
   main_job:
     runs-on: ubuntu-latest
