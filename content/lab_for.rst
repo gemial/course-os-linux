@@ -1,9 +1,9 @@
 Цикл for
 ########
 
-:date: 2021-05-10
+:date: 2021-05-13
 :summary: Описание лабы
-:status: draft
+:status: published
 :author: Бекбаева И.В.
 
 .. contents:: Содержание
