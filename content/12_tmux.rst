@@ -1,9 +1,9 @@
 Tmux – терминальный мультиплексор
 =================================
 
-:date: 2020-10-07 09:00
+:date: 2022-03-22 09:00
 :summary: Описание лабы
-:status: draft
+:status: published
 :author: Эрихман М. Е.
 
 .. default-role:: code
