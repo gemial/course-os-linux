@@ -1,9 +1,9 @@
 Модуль os в Python
 ####################
 
-:date: 2021-05-16
+:date: 2022-04-19
 :summary: Лаба
-:status: draft
+:status: published
 :author: Кауров Р.О.
 
 
