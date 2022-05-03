@@ -208,7 +208,7 @@ Systemd
 
 Далее открываем этот файл в текстовом редакторе (например *Vim* или *Nano*) и пишем в него параметры конфигурации службы. Ниже показан базовый пример Unit-файла.
 
-.. code-block::
+.. code-block:: bash
 
        [Unit]
        Description=This is the manually created service
