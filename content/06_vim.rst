@@ -1,9 +1,9 @@
 Файловый редактор Vim
 ######################
 
-:date: 2022-05-06 09:00
+:date: 2022-02-20 09:00
 :summary: Описание лабы
-:status: edit
+:status: draft
 :author: Латыпова А.А.
 
 .. default-role:: code
