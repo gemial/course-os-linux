@@ -41,6 +41,7 @@ os.name
   import os
 
   print(os.name) 
+  
   # C: nt
 
 Это говорит нам о том, что наш экземпляр Python работает в окне Windows. Как мы об этом узнали? Майкрософт начали называть свою операционную систему NT много лет назад. Например, Windows 7 также носит имя Windows NT 6.1.
@@ -131,12 +132,12 @@ os.environ, os.getenv() и os.putenv()
 
 .. code-block:: python
 
-  Traceback (most recent call last):
-      File "<pyshell#1>", line 1, in <module>
+ '''Traceback (most recent call last):
+     File "<pyshell#1>", line 1, in <module>
           os.environ["TMP2"]
       File "C:\Python27\lib\os.py", line 423, in __getitem__
           return self.data[key.upper()]
-  KeyError: 'TMP2'
+  KeyError: 'TMP2''''
   
   
 os.chdir() и os.getcwd()
@@ -212,6 +213,7 @@ os.rename(src, dst)
 ----------
 
 Функция os.rename() применяется тогда, когда нужно переименовать файл или папку. Посмотрим на примере:
+
 .. code-block:: python
 
   os.rename("test.txt", "pytest.txt")
