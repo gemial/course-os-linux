@@ -59,6 +59,8 @@ os.environ, os.getenv() и os.putenv()
 
 	>>> print(os.environ)
 	
+.. code-block:: txt
+	
 	environ({'TERM_PROGRAM': 'Apple_Terminal', 
 	'SHELL': '/bin/bash', 
 	'TERM': 'xterm-256color', 
@@ -89,6 +91,8 @@ os.environ, os.getenv() и os.putenv()
 
 	>>> print(os.environ["TMPDIR"]) 
 	
+.. code-block:: txt
+	
 	/var/folders/hv/p9v314d106z3tqjyxvn5hfm40000gn/T/
 
 Вы также можете использовать функцию os.getenv для доступа к этой переменной:
@@ -97,6 +101,8 @@ os.environ, os.getenv() и os.putenv()
 
 	>>> print(os.getenv("TMPDIR")) 
 	
+.. code-block:: txt
+	
 	/var/folders/hv/p9v314d106z3tqjyxvn5hfm40000gn/T/
 
 Полезность использования os.getenv() вместо словаря os.environ заключается в том, что если вы находитесь в положении, когда вам нужно получить доступ к переменной среды, которая не существует, функция getenv попросту ничего не сделает. Если вы попытаетесь сделать то же самое, пользуясь os.environ, вы получите уведомление об ошибке. Давайте попробуем на примере:
@@ -104,6 +110,8 @@ os.environ, os.getenv() и os.putenv()
 .. code-block:: python
 
 	>>> print(os.environ["TMP2"])
+	
+.. code-block:: txt
 	
 	Traceback (most recent call last):
 	  File "<stdin>", line 1, in <module>
@@ -120,8 +128,10 @@ os.chdir() и os.getcwd()
 .. code-block:: python
 
 	>>> os.getcwd()	
+
 	
 	'/Users/evgenij'
+	
 
   os.chdir(r"C:\Users\mike\Documents")
   
@@ -140,20 +150,16 @@ os.mkdir() и os.makedirs()
 
 .. code-block:: python
 
-  import os
-
-  os.mkdir("test")
-  path = r'C:\Users\mike\Documents\pytest'
-  os.mkdir(path)
+	>>> import os
+	>>> path = r'C:\Users\evjenij\Documents'
+	>>> os.mkdir(path)
 
 Первая строка кода создает папку под названием test в определенном каталоге. Вы можете использовать эти модули в предыдущем разделе, чтобы узнать, где именно вы запустили свой код, на случай, если вы забыли. Во втором примере мы назначили путь к переменной, затем к os.mkdir(). Это позволяет вам создать папку в любой точке вашей системы, где есть доступ. Функция os.makedirs() создает промежуточные папки в пути, если их там нет. В целом, это значит, что вы создали путь, в котором размещены папки. Данное решение удобно, когда есть необходимость создания журнала, с датированной структурой, например Год\Месяц\День. Давайте взглянем на пример:
 
 .. code-block:: python
 
-  import os
-
-  path = r'C:\Users\mike\Documents\pytest\2014\02\19'
-  os.makedirs(path)
+ >>> path = r'C:\Users\evjenij\Documents\pytest\2014\02\19'
+ >>> os.makedirs(path)
   
 Что произошло? Этот код просто создал кучу папок! Если в вашей системе все еще есть папка pytest, то в ней появится папка 2014, в которой также есть папка, в которой, удивительно, находится еще одна. Попробуйте сами, воспользовавшись рабочим путем в вашей системе.
 
@@ -165,17 +171,13 @@ os.remove() и os.rmdir()
 
 .. code-block:: python
 
-  import os
-
-  os.remove("test.txt")
+ >>> os.remove("test.txt")
   
 Этот фрагмент кода пытается удалить файл под названием test.txt из вашего рабочего каталога. Если модуль не может найти файл, должно появиться уведомление о той или иной ошибке. Ошибка также возникнет, если файл уже используется (другими словами закрыт), или у вас нет разрешения для удаления данного файла. Возможно, вы хотите проверить os.unlink, который выполняет ту же функцию. Термин unlink – привычное для Unix название данной процедуры. Взглянем на пример работы os.rmdir():
 
 .. code-block:: python
 
-  import os
-
-  os.rmdir("pytest")
+  >>> os.rmdir("pytest")
   
 Данный код попытается удалить каталог под названием pytest из каталога, используемого в данный момент в работе. В случае, если это удалось, каталог pytest исчезнет. Ошибка может возникнуть, если каталога с таким названием не существует, если у вас нет разрешения на его удаление, или если каталог не пустой. Вам возможно хочется взглянуть на os.removedirs(), который может удалить пустые вложенные каталоги.
 
@@ -187,7 +189,7 @@ os.rename(src, dst)
 
 .. code-block:: python
 
-  os.rename("test.txt", "pytest.txt")
+  >>> os.rename("test.txt", "pytest.txt")
   
 В этом примере, мы указали os.rename на то, что нужно переименовать файл под названием test.txt на pytest.txt. Это произойдет в каталоге, с которым мы в данный момент работаем. Ошибка может возникнуть в том случае, если вы попытаетесь переименовать несуществующий файл, или если у вас нет доступа к данной операции. Также существует функция os.renames, которая меняет название папки или файла соответственно.
 
@@ -199,9 +201,7 @@ os.startfile()
 
 .. code-block:: python
 
-  import os
-
-  os.startfile(r'C:\Users\mike\Documents\labels.pdf')
+  >>> os.startfile(r'C:\Users\evjenij\Documents\labels.pdf')
   
 В данном примере мы прошли полный путь к модулю os.startfile, который указывает на открытие файла под названием labels.pdf. На моем компьютере данная функция открывает файл PDF в программе Adobe Reader. Попробуйте открыть файлы PDF, MP3 или фотографии на своем компьютере при помощи данного метода, чтобы увидеть как он работает.
 
@@ -214,7 +214,7 @@ os.walk()
 
   import os
 
-  path = r'C:\Python27\Tools'
+  path = r'C:\Python3\Tools'
 
   for root, dirs, files in os.walk(path):
       print(root)
