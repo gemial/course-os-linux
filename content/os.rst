@@ -208,28 +208,26 @@ os.startfile()
 os.walk()
 =========================================================
 
-Метод os.walk() дает нам возможность для итерации на корневом уровне пути. Это значит, что мы можем назначить путь к этой функции и получить доступ ко всем её подкаталогам и файлам. Используем одну из папок Python, при помощи которой мы можем проверить данную функцию. Мы используем C:\Python27\Tools
+Метод os.walk() дает нам возможность для итерации на корневом уровне пути. Это значит, что мы можем назначить путь к этой функции и получить доступ ко всем её подкаталогам и файлам. Используем одну из папок Python, при помощи которой мы можем проверить данную функцию. Мы используем C:\Python3\Tools
 
 .. code-block:: python
 
-  import os
+  >>> path = r'C:\Python3\Tools'
 
-  path = r'C:\Python3\Tools'
-
-  for root, dirs, files in os.walk(path):
-      print(root)
+  >>> for root, dirs, files in os.walk(path):
+      	print(root)
       
 Результат работы:
 
-.. code-block:: python
+.. code-block:: txt
 
-  C:\Python27\Tools
-  C:\Python27\Tools\i18n
-  C:\Python27\Tools\pynche
-  C:\Python27\Tools\pynche\X
-  C:\Python27\Tools\Scripts
-  C:\Python27\Tools\versioncheck
-  C:\Python27\Tools\webchecker
+  C:\Python3\Tools
+  C:\Python3\Tools\i18n
+  C:\Python3\Tools\pynche
+  C:\Python3\Tools\pynche\X
+  C:\Python3\Tools\Scripts
+  C:\Python3\Tools\versioncheck
+  C:\Python3\Tools\webchecker
   
   
 Функции для работы со ссылками
@@ -345,10 +343,11 @@ os.path.basename
 
 .. code-block:: python
 
-  import os
+	>>> os.path.basename(r'C:\Python3\Tools\pynche\ChipViewer.py')
+	
+.. code-block:: txt
 
-  os.path.basename(r'C:\Python27\Tools\pynche\ChipViewer.py')
-  # ChipViewer.py
+# ChipViewer.py
   
 Это очень полезная функция, особенно в тех случаях, когда нужно использовать имя файла для наименования того или иного связанного с работой файла, например лог-файл. Такая ситуация возникает часто при работе с файлами данных.
 
@@ -359,10 +358,11 @@ os.path.dirname
 
 .. code-block:: python
 
-  import os
+  >>> print( os.path.dirname(r'C:\Python3\Tools\pynche\ChipViewer.py') )
+  
+.. code-block:: txt
 
-  print( os.path.dirname(r'C:\Python27\Tools\pynche\ChipViewer.py') )
-  # C:\\Python27\\Tools\\pynche
+  # C:\\Python3\\Tools\\pynche
   
 В данном примере мы просто возвращаем путь к каталогу. Это также полезно, когда вам нужно сохранить другие файлы рядом с тем, который вы обрабатываете в данный момент. Как и в случае с лог-файлом, упомянутым выше.
 
@@ -373,11 +373,9 @@ os.path.exists
 
 .. code-block:: python
 
-  import os
+  >>> os.path.exists(r'C:\Python3\Tools\pynche\ChipViewer.py') # True
 
-  os.path.exists(r'C:\Python27\Tools\pynche\ChipViewer.py') # True
-
-  os.path.exists(r'C:\Python27\Tools\pynche\fake.py') # False
+  >>> os.path.exists(r'C:\Python3\Tools\pynche\fake.py') # False
   
 В первом примере, мы указали функции exists настоящий путь, на что она указывает как True. Это говорит о том, что данный путь существует. Во втором примере, мы указали неправильный путь, от чего функция указывает нам на это сообщением False.
 
@@ -388,19 +386,21 @@ os.path.isdir / os.path.isfile
 
 .. code-block:: python
 
-  import os
+  >>> os.path.isfile(r'C:\Python3\Tools\pynche\ChipViewer.py') 
+  
+  True
 
-  os.path.isfile(r'C:\Python27\Tools\pynche\ChipViewer.py') 
-  # True
+  >>> os.path.isdir(r'C:\Python3\Tools\pynche\ChipViewer.py') 
+  
+  False
 
-  os.path.isdir(r'C:\Python27\Tools\pynche\ChipViewer.py') 
-  # False
+  >>> os.path.isdir(r'C:\Python3\Tools\pynche') 
+  
+  True
 
-  os.path.isdir(r'C:\Python27\Tools\pynche') 
-  # True
-
-  os.path.isfile(r'C:\Python27\Tools\pynche') 
-  # False
+  >>> os.path.isfile(r'C:\Python3\Tools\pynche') 
+  
+  False
   
 Уделите особое внимание данным примерам. В первом мы указали путь к файлу и проверили, является ли этот путь в действительности файлом. Затем, во втором примере, мы проделали то же самое, но в контексте папки. Вы можете лично ознакомиться с результатами. После этих двух примеров, мы немного изменили условия, указав путь к папке для обеих функций. Эти примеры наглядно демонстрируют то, как эти функции работают.
 
@@ -411,10 +411,11 @@ os.path.join
 
 .. code-block:: python
 
-  import os
-
-  print( os.path.join(r'C:\Python27\Tools\pynche', 'ChipViewer.py') )
-  # C:\\Python27\\Tools\\pynche\\ChipViewer.py
+ >>>  print( os.path.join(r'C:\Python3\Tools\pynche', 'ChipViewer.py') )
+ 
+.. code-block:: txt
+ 
+ C:\\Python3\\Tools\\pynche\\ChipViewer.py
   
 В данном примере мы совместили путь каталога и файла вместе, для получения рабочего пути. Обратите внимание на то, что метод join не указывает на то, какой результат в итоге вышел.
 
@@ -425,32 +426,40 @@ os.path.split
 
 .. code-block:: python
 
-  import os
-
-  print( os.path.split(r'C:\Python27\Tools\pynche\ChipViewer.py') )
-  # ('C:\\Python27\\Tools\\pynche', 'ChipViewer.py')
+   >>> print( os.path.split(r'C:\Python3\Tools\pynche\ChipViewer.py') )
+  
+.. code-block:: txt
+ 
+  'C:\\Python3\\Tools\\pynche', 'ChipViewer.py'
   
 В данном примере показано, что происходит, когда мы указываем путь к файлу. Теперь взглянем на то, что происходит, если в конце пути нет названия файла:
 
 .. code-block:: python
 
-  import os
+   >>>  print( os.path.split(r'C:\Python3\Tools\pynche') )
 
-  print( os.path.split(r'C:\Python27\Tools\pynche') )
-  # (‘C:\Python27\Tools’, ‘pynche’)
+.. code-block:: txt
+
+  # (‘C:\Python3\Tools’, ‘pynche’)
   
 Как видите, данная функция берет путь и разъединяет его таким образом, что подпапка стала вторым элементом кортежа с остальной частью пути в первом элементе. Напоследок, взглянем на бытовой случай использования split:
 
 .. code-block:: python
 
-  import os
+  >>>  dirname, fname = os.path.split(r'C:\Python3\Tools\pynche\ChipViewer.py')
+  >>>   print(dirname)
+  
+.. code-block:: txt
 
-  dirname, fname = os.path.split(r'C:\Python27\Tools\pynche\ChipViewer.py')
-  print(dirname)
-  # C:\\Python27\\Tools\\pynche
+  C:\\Python3\\Tools\\pynche
 
-  print(fname)
-  # ChipViewer.py
+.. code-block:: python
+
+   >>>  print(fname)
+   
+.. code-block:: txt
+  
+  ChipViewer.py
   
 В данном примере указано, как сделать множественное назначение. Когда вы разъединяете путь, он становится кортежем, состоящим из двух частей. После того, как мы опробовали две переменные с левой части, первый элемент кортежа назначен к первой переменной, а второй элемент к второй переменной соответственно.
 
