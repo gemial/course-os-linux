@@ -29,7 +29,7 @@
 
 .. code-block:: python
 
- import os
+	>>> import os
 
 Основные функции для работы с модулем
 ##########################################################
@@ -41,8 +41,8 @@ os.name
 
 .. code-block:: python
 
-	>>> import os
 	>>> os.name
+	
 	'posix'
 
 Это говорит нам о том, что наш экземпляр Python работает в окне Windows. Как мы об этом узнали? Майкрософт начали называть свою операционную систему NT много лет назад. Например, Windows 7 также носит имя Windows NT 6.1.
@@ -57,8 +57,8 @@ os.environ, os.getenv() и os.putenv()
 
 .. code-block:: python
 
-	>>> import os 
 	>>> print(os.environ)
+	
 	environ({'TERM_PROGRAM': 'Apple_Terminal', 
 	'SHELL': '/bin/bash', 
 	'TERM': 'xterm-256color', 
@@ -79,34 +79,32 @@ os.environ, os.getenv() и os.putenv()
 	'SHLVL': '1', 
 	'HOME': '/Users/evgenij',
 	'CONDA_PYTHON_EXE': '/Users/evgenij/opt/anaconda3/bin/python',
-	'LOGNAME': 'evgenij', '_': '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3', '__CF_USER_TEXT_ENCODING': '0x1F5:0x7:0x31', 
+	'LOGNAME': 'evgenij', '_': '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3',
+	'__CF_USER_TEXT_ENCODING': '0x1F5:0x7:0x31', 
 	'__PYVENV_LAUNCHER__': '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'})
 
 Ваши данные будут отличаться от моих, так как конфигурация компьютера у всех немного отличается, однако вы определенно увидите большое количество совпадений. Как вы могли заметить, работа функции вернула словарь. Это значит, что вы можете получить доступ к значениям среды, пользуясь обычными словарными методами. Например обрвщаться к нему по ключу:
 
 .. code-block:: python
 
-  import os
-
 	>>> print(os.environ["TMPDIR"]) 
+	
 	/var/folders/hv/p9v314d106z3tqjyxvn5hfm40000gn/T/
 
 Вы также можете использовать функцию os.getenv для доступа к этой переменной:
 
 .. code-block:: python
 
-  import os
-
 	>>> print(os.getenv("TMPDIR")) 
+	
 	/var/folders/hv/p9v314d106z3tqjyxvn5hfm40000gn/T/
 
 Полезность использования os.getenv() вместо словаря os.environ заключается в том, что если вы находитесь в положении, когда вам нужно получить доступ к переменной среды, которая не существует, функция getenv попросту ничего не сделает. Если вы попытаетесь сделать то же самое, пользуясь os.environ, вы получите уведомление об ошибке. Давайте попробуем на примере:
 
 .. code-block:: python
 
-  import os
-
 	>>> print(os.environ["TMP2"])
+	
 	Traceback (most recent call last):
 	  File "<stdin>", line 1, in <module>
 	  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/os.py", line 678, in __getitem__
@@ -121,10 +119,9 @@ os.chdir() и os.getcwd()
 
 .. code-block:: python
 
-  import os
-
-  print(os.getcwd()) 
-  # C:\\Python27
+	>>> os.getcwd()	
+	
+	'/Users/evgenij'
 
   os.chdir(r"C:\Users\mike\Documents")
   
