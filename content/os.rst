@@ -88,8 +88,8 @@ os.environ, os.getenv() и os.putenv()
 
   import os
 
-  print(os.environ["TMP"]) 
-  # C:\\Users\\mike\\AppData\\Local\\Temp
+	>>> print(os.environ["TMPDIR"]) 
+	/var/folders/hv/p9v314d106z3tqjyxvn5hfm40000gn/T/
 
 Вы также можете использовать функцию os.getenv для доступа к этой переменной:
 
@@ -97,8 +97,8 @@ os.environ, os.getenv() и os.putenv()
 
   import os
 
-  print(os.getenv("TMP")) 
-  # C:\\Users\\mike\\AppData\\Local\\Temp
+	>>> print(os.getenv("TMPDIR")) 
+	/var/folders/hv/p9v314d106z3tqjyxvn5hfm40000gn/T/
 
 Полезность использования os.getenv() вместо словаря os.environ заключается в том, что если вы находитесь в положении, когда вам нужно получить доступ к переменной среды, которая не существует, функция getenv попросту ничего не сделает. Если вы попытаетесь сделать то же самое, пользуясь os.environ, вы получите уведомление об ошибке. Давайте попробуем на примере:
 
@@ -106,19 +106,12 @@ os.environ, os.getenv() и os.putenv()
 
   import os
 
-  print(os.environ["TMP2"])
-
-
-Результат выполнения данного скрипта:
-
-.. code-block:: python
-
- '''Traceback (most recent call last):
-     File "<pyshell#1>", line 1, in <module>
-          os.environ["TMP2"]
-      File "C:\Python27\lib\os.py", line 423, in __getitem__
-          return self.data[key.upper()]
-  KeyError: 'TMP2''''
+	>>> print(os.environ["TMP2"])
+	Traceback (most recent call last):
+	  File "<stdin>", line 1, in <module>
+	  File "/Library/Frameworks/Python.framework/Versions/3.7/lib/python3.7/os.py", line 678, in __getitem__
+	    raise KeyError(key) from None
+	KeyError: 'TMP2'
   
   
 os.chdir() и os.getcwd()
