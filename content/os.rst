@@ -41,11 +41,9 @@ os.name
 
 .. code-block:: python
 
-  import os
-
-  print(os.name) 
-  
-  # C: nt
+	>>> import os
+	>>> os.name
+	'posix'
 
 Это говорит нам о том, что наш экземпляр Python работает в окне Windows. Как мы об этом узнали? Майкрософт начали называть свою операционную систему NT много лет назад. Например, Windows 7 также носит имя Windows NT 6.1.
 
@@ -59,50 +57,30 @@ os.environ, os.getenv() и os.putenv()
 
 .. code-block:: python
 
-  import os
-  print(os.environ)
-  
-.. code-block:: python
-
-	{'ALLUSERSPROFILE': 'C:\\ProgramData', 
-	'APPDATA': 'C:\\Users\\mike\\AppData\\Roaming', 
-	'CLASSPATH': '.;C:\\Program Files\\QuickTime\\QTSystem\\QTJava.zip', 
-	'COMMONPROGRAMFILES': 'C:\\Program Files\\Common Files', 
-	'COMPUTERNAME': 'MIKE-PC', 
-	'COMSPEC': 'C:\\Windows\\system32\\cmd.exe', 
-	'FP_NO_HOST_CHECK': 'NO',
-	'HOMEDRIVE': 'C:',
-	'HOMEPATH': '\\Users\\mike',
-	'LOCALAPPDATA': 'C:\\Users\\mike\\AppData\\Local',
-	'LOGONSERVER': '\\\\MIKE-PC',
-	'NUMBER_OF_PROCESSORS': '2',
-	'OS': 'Windows_NT',
-	'PATHEXT': '.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC',
-	'PROCESSOR_ARCHITECTURE': 'x86',
-	'PROCESSOR_IDENTIFIER': 'x86 Family 6 Model 15 Stepping 13, GenuineIntel',
-	'PROCESSOR_LEVEL': '6',
-	'PROGRAMDATA': 'C:\\ProgramData',
-	'PROGRAMFILES': 'C:\\Program Files',
-	'PSMODULEPATH': 'C:\\Windows\\system32\\WindowsPowerShell\\v1.0\\Modules\\',
-	'PUBLIC': 'C:\\Users\\Public',
-	'PYTHONIOENCODING': 'cp437',
-	'QTJAVA': 'C:\\Program Files\\QuickTime\\QTSystem\\QTJava.zip',
-	'SESSIONNAME': 'Console',
-	'SYSTEMDRIVE': 'C:',
-	'SYSTEMROOT': 'C:\\Windows',
-	'TEMP': 'C:\\Users\\mike\\AppData\\Local\\Temp',
-	'TMP': 'C:\\Users\\mike\\AppData\\Local\\Temp',
-	'USERDOMAIN': 'mike-PC',
-	'USERNAME': 'mike',
-	'USERPROFILE': 'C:\\Users\\mike',
-	'VBOX_INSTALL_PATH': 'C:\\Program Files\\Oracle\\VirtualBox\\',
-	'VS90COMNTOOLS': 'C:\\Program Files\\Microsoft Visual Studio 9.0\\Common7\\Tool\s\\',
-	'WINDIR': 'C:\\Windows',
-	'WINDOWS_TRACING_FLAGS': '3',
-	'WINDOWS_TRACING_LOGFILE': 'C:\\BVTBin\\Tests\\installpackage\\csilogfile.log',
-	'WINGDB_ACTIVE': '1',
-	'WINGDB_PYTHON': 'c:\\python27\\python.exe',
-	'WINGDB_SPAWNCOOKIE': 'rvlxwsGdD7SHYIJm'}
+	>>> import os 
+	>>> print(os.environ)
+	environ({'TERM_PROGRAM': 'Apple_Terminal', 
+	'SHELL': '/bin/bash', 
+	'TERM': 'xterm-256color', 
+	'TMPDIR': '/var/folders/hv/p9v314d106z3tqjyxvn5hfm40000gn/T/',
+	'CONDA_SHLVL': '0', 
+	'TERM_PROGRAM_VERSION': '433', 
+	'TERM_SESSION_ID': '156EFB08-2191-40AC-89C8-A80DA200875F', 
+	'USER': 'evgenij',
+	'CONDA_EXE': '/Users/evgenij/opt/anaconda3/bin/conda', 
+	'SSH_AUTH_SOCK': '/private/tmp/com.apple.launchd.lJbr3lVPMb/Listeners', 
+	'_CE_CONDA': '', 
+	'PATH': '/Users/evgenij/opt/anaconda3/condabin:/Library/Frameworks/Python.framework/Versions/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Library/TeX/texbin', 
+	'PWD': '/Users/evgenij', 
+	'LANG': 'ru_RU.UTF-8', 
+	'XPC_FLAGS': '0x0', 
+	'_CE_M': '', 
+	'XPC_SERVICE_NAME': '0', 
+	'SHLVL': '1', 
+	'HOME': '/Users/evgenij',
+	'CONDA_PYTHON_EXE': '/Users/evgenij/opt/anaconda3/bin/python',
+	'LOGNAME': 'evgenij', '_': '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3', '__CF_USER_TEXT_ENCODING': '0x1F5:0x7:0x31', 
+	'__PYVENV_LAUNCHER__': '/Library/Frameworks/Python.framework/Versions/3.7/bin/python3'})
 
 Ваши данные будут отличаться от моих, так как конфигурация компьютера у всех немного отличается, однако вы определенно увидите большое количество совпадений. Как вы могли заметить, работа функции вернула словарь. Это значит, что вы можете получить доступ к значениям среды, пользуясь обычными словарными методами. Например обрвщаться к нему по ключу:
 
