@@ -131,7 +131,7 @@ os.chdir( ) / os.getcwd( )
 
 .. code-block:: txt
 	
-	'/Users/evgenij'
+	/Users/evgenij
 	
 .. code-block:: python	
 
@@ -155,7 +155,6 @@ os.mkdir( ) / os.makedirs( )
 
 .. code-block:: python
 
-	>>> import os
 	>>> path = r'C:\Users\evjenij\Documents'
 	>>> os.mkdir(path)
 
