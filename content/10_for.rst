@@ -1,7 +1,7 @@
 Цикл for
 ########
 
-:date: 2022-03-15
+:date: 2022-05-10
 :summary: Описание лабы
 :status: published
 :author: Бекбаева И.В.

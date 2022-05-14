@@ -1,9 +1,10 @@
 Системы контроля версий (на примере Git)
 ############################################
-:date: 21.05.2021
+
+:date: 2022-05-14
 :summary: Описание лабы
 :author: Соловьёв М.А.
-:status: draft
+:status: published
 
 .. default-role:: code
 .. contents:: Содержание
