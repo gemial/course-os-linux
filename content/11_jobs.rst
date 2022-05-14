@@ -1,8 +1,8 @@
 Работа с процессами (jobs, bg, fg, kill) 
 ###############################################
 
-:date: 2022-03-19 15:20
-:summary:  Работа с процессами (jobs, bg, fg, kill) 
+:date: 2022-05-11
+:summary:  Работа с процессами (jobs, bg, fg) 
 :status: published
 :author: Шатров П.А., обновлено: Бестужева С.А.
 :language: bash
