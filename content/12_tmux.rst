@@ -14,10 +14,10 @@ Tmux – терминальный мультиплексор
 окон. Также возможно подключение к существующей сессии из другого
 рабочего места не прерывая выполнение определенных задач.
 
-.. image:: ./images/tmux/01.png
+.. image:: {filename}/images/tmux/01.png
     :scale: 100 %
     :alt: 01
-    :target: ./images/tmux/01.png 
+    :target: {filename}/images/tmux/01.png
 
 Как видно из скриншота, у нас несколько консольных панелей в одном окне.
 Очень удобно работать. Приступим к более подробному рассмотрению. Для
@@ -38,10 +38,10 @@ Tmux – терминальный мультиплексор
 
 Происходит запуск утилиты. Понять, что мы находимся в tmux можно по наличию зеленой строки внизу консоли, на которой размещены дата и время.
 
-.. image:: ./images/tmux/02.png
+.. image:: {filename}/images/tmux/02.png
     :scale: 100 %
     :alt: 02
-    :target: ./images/tmux/02.png
+    :target: {filename}/images/tmux/02.png
 
 
 По умолчанию создается одна панель на весь экран. Для того, чтобы
@@ -50,10 +50,10 @@ Tmux – терминальный мультиплексор
 команду, а пользуетесь функцией терминального мультиплексера), далее
 нажимаете «Shift+%». Справа создается еще одна панель.
 
-.. image:: ./images/tmux/03.png
+.. image:: {filename}/images/tmux/03.png
     :scale: 100 %
     :alt: 03
-    :target: ./images/tmux/03.png
+    :target: {filename}/images/tmux/03.png
 
 Теперь в рамках одного окна у вас есть две рабочие зоны.
 
@@ -62,28 +62,28 @@ Tmux – терминальный мультиплексор
 Для создания горизонтальной панели нажмите «Crtl+B» далее «Shift+”»
 (кавычка находится на русской букве «Э»)
 
-.. image:: ./images/tmux/4.png
+.. image:: {filename}/images/tmux/4.png
     :scale: 100 %
     :alt: 04
-    :target: ./images/tmux/4.png 
+    :target: {filename}/images/tmux/4.png
 
 Для изменения размера определенной панели есть следующая комбинация
 клавиш:
 
 «Ctrl+B» затем зажимаем Alt и стрелочками изменяем размер.
 
-.. image:: ./images/tmux/5.png
+.. image:: {filename}/images/tmux/5.png
     :scale: 100 %
     :alt: 05
-    :target: ./images/tmux/5.png
+    :target: {filename}/images/tmux/5.png
 
 Для изменения местоположения панели воспользуется комбинацией клавиш
 «Ctrl+B» затем «}».
 
-.. image:: ./images/tmux/04.png
+.. image:: {filename}/images/tmux/04.png
     :scale: 100 %
     :alt: 06
-    :target: ./images/tmux/04.png
+    :target: {filename}/images/tmux/04.png
 
 
 
@@ -92,10 +92,10 @@ Tmux – терминальный мультиплексор
 
 Для просмотра списка окон можно воспользоваться командой «Ctrl+B» «w»
 
-.. image:: ./images/tmux/05.png
+.. image:: {filename}/images/tmux/05.png
     :scale: 100 %
     :alt: 07
-    :target: ./images/tmux/05.png  
+    :target: {filename}/images/tmux/05.png
 
 Как видно из скриншота, у нас создалось второе окно. Для удобного
 распознавания нужного окна можно присвоить им имена:
@@ -138,10 +138,10 @@ rename-session –t 0 session_name»
 
     tmux ls
 
-.. image:: ./images/tmux/06.png
+.. image:: {filename}/images/tmux/06.png
     :scale: 100 %
     :alt: 08
-    :target: ./images/tmux/06.png
+    :target: {filename}/images/tmux/06.png
 
 
 
@@ -237,42 +237,42 @@ rename-session –t 0 session_name»
 
 1. Откройте tmux
 
-.. image:: ./images/tmux/t1.jpg
+.. image:: {filename}/images/tmux/t1.jpg
     :scale: 100 %
     :alt: t1
-    :target: ./images/tmux/t1.jpg
+    :target: {filename}/images/tmux/t1.jpg
 
 2. Создайте четыре окна и измените их размер, как показано на фотографии
 
-.. image:: ./images/tmux/t2.jpg
+.. image:: {filename}/images/tmux/t2.jpg
     :scale: 100 %
     :alt: t2
-    :target: ./images/tmux/t2.jpg
+    :target: {filename}/images/tmux/t2.jpg
 
 3. Откройте в левом верхнем окне диспетчер задач, а в правом верхнем - время (в соответствии с фотографией)
 
-.. image:: ./images/tmux/t3.jpg
+.. image:: {filename}/images/tmux/t3.jpg
     :scale: 100 %
     :alt: t3
-    :target: ./images/tmux/t3.jpg
+    :target: {filename}/images/tmux/t3.jpg
 
 4. Создайте скрипт (или воспользуйтесь скриптом из прошлой лабы), который по выбору пользователя с интервалом печатает цифры. Запустите скрипт в левом нижнем окне.
 
-.. image:: ./images/tmux/t4.jpg
+.. image:: {filename}/images/tmux/t4.jpg
     :scale: 100 %
     :alt: t4
-    :target: ./images/tmux/t4.jpg
+    :target: {filename}/images/tmux/t4.jpg
 
 5. Используя знания о работе с процессами, запустите данный скрипт три раза в левом нижнем окне (при этом цифры, выводящиеся на экран, должны быть различными)
 
-.. image:: ./images/tmux/t5.jpg
+.. image:: {filename}/images/tmux/t5.jpg
     :scale: 100 %
     :alt: t5
-    :target: ./images/tmux/t5.jpg
+    :target: {filename}/images/tmux/t5.jpg
 
 6. В правом нижнем окне отройте используемый скрипт в редакторе vim (на фотографии, конечно, не он)
 
-.. image:: ./images/tmux/t6.jpg
+.. image:: {filename}/images/tmux/t6.jpg
     :scale: 100 %
     :alt: t6
-    :target: ./images/tmux/t6.jpg
+    :target: {filename}/images/tmux/t6.jpg
