@@ -1,10 +1,10 @@
 Основные программы
 #############################################
 
-:date: 2022-05-04
-:summary: Основные программы для работы в терминале
+:date: 2022-05-21
+:summary: Systemd и Systemctl
 :status: published
-:author: Ачкасов К.
+:author: Карпович Б.
 
 .. role:: bash(code)
 	:language: bash
