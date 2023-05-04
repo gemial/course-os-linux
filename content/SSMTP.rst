@@ -110,6 +110,8 @@ SSMTP и электронная почта
 
 Можно усовершенствовать этот пример, добавив возможность рассылки текста из файла нескольким адресатам. Для этого создадим файл letter.txt, в котором напишем текст письма:
 
+.. code-block:: text
+
     To be, or not to be, that is the question:
     Whether 'tis nobler in the mind to suffer
     The Slings and Arrows of outrageous Fortune
@@ -119,7 +121,8 @@ SSMTP и электронная почта
     The heart-ache and the thousand natural shocks
     That flesh is heir to — 'tis a consummation
     Devoutly to be wish'd.
-    
+
+
 Отредактируем файл mailing.sh:
 
 .. code-block:: bash
