@@ -1,0 +1,749 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+<title>Протокол SMTP</title>
+<style type="text/css">
+
+/*
+:Author: David Goodger (goodger@python.org)
+:Id: $Id: html4css1.css 7952 2016-07-26 18:15:59Z milde $
+:Copyright: This stylesheet has been placed in the public domain.
+
+Default cascading style sheet for the HTML output of Docutils.
+
+See http://docutils.sf.net/docs/howto/html-stylesheets.html for how to
+customize this style sheet.
+*/
+
+/* used to remove borders from tables and images */
+.borderless, table.borderless td, table.borderless th {
+  border: 0 }
+
+table.borderless td, table.borderless th {
+  /* Override padding for "table.docutils td" with "! important".
+     The right padding separates the table cells. */
+  padding: 0 0.5em 0 0 ! important }
+
+.first {
+  /* Override more specific margin styles with "! important". */
+  margin-top: 0 ! important }
+
+.last, .with-subtitle {
+  margin-bottom: 0 ! important }
+
+.hidden {
+  display: none }
+
+.subscript {
+  vertical-align: sub;
+  font-size: smaller }
+
+.superscript {
+  vertical-align: super;
+  font-size: smaller }
+
+a.toc-backref {
+  text-decoration: none ;
+  color: black }
+
+blockquote.epigraph {
+  margin: 2em 5em ; }
+
+dl.docutils dd {
+  margin-bottom: 0.5em }
+
+object[type="image/svg+xml"], object[type="application/x-shockwave-flash"] {
+  overflow: hidden;
+}
+
+/* Uncomment (and remove this text!) to get bold-faced definition list terms
+dl.docutils dt {
+  font-weight: bold }
+*/
+
+div.abstract {
+  margin: 2em 5em }
+
+div.abstract p.topic-title {
+  font-weight: bold ;
+  text-align: center }
+
+div.admonition, div.attention, div.caution, div.danger, div.error,
+div.hint, div.important, div.note, div.tip, div.warning {
+  margin: 2em ;
+  border: medium outset ;
+  padding: 1em }
+
+div.admonition p.admonition-title, div.hint p.admonition-title,
+div.important p.admonition-title, div.note p.admonition-title,
+div.tip p.admonition-title {
+  font-weight: bold ;
+  font-family: sans-serif }
+
+div.attention p.admonition-title, div.caution p.admonition-title,
+div.danger p.admonition-title, div.error p.admonition-title,
+div.warning p.admonition-title, .code .error {
+  color: red ;
+  font-weight: bold ;
+  font-family: sans-serif }
+
+/* Uncomment (and remove this text!) to get reduced vertical space in
+   compound paragraphs.
+div.compound .compound-first, div.compound .compound-middle {
+  margin-bottom: 0.5em }
+
+div.compound .compound-last, div.compound .compound-middle {
+  margin-top: 0.5em }
+*/
+
+div.dedication {
+  margin: 2em 5em ;
+  text-align: center ;
+  font-style: italic }
+
+div.dedication p.topic-title {
+  font-weight: bold ;
+  font-style: normal }
+
+div.figure {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+div.footer, div.header {
+  clear: both;
+  font-size: smaller }
+
+div.line-block {
+  display: block ;
+  margin-top: 1em ;
+  margin-bottom: 1em }
+
+div.line-block div.line-block {
+  margin-top: 0 ;
+  margin-bottom: 0 ;
+  margin-left: 1.5em }
+
+div.sidebar {
+  margin: 0 0 0.5em 1em ;
+  border: medium outset ;
+  padding: 1em ;
+  background-color: #ffffee ;
+  width: 40% ;
+  float: right ;
+  clear: right }
+
+div.sidebar p.rubric {
+  font-family: sans-serif ;
+  font-size: medium }
+
+div.system-messages {
+  margin: 5em }
+
+div.system-messages h1 {
+  color: red }
+
+div.system-message {
+  border: medium outset ;
+  padding: 1em }
+
+div.system-message p.system-message-title {
+  color: red ;
+  font-weight: bold }
+
+div.topic {
+  margin: 2em }
+
+h1.section-subtitle, h2.section-subtitle, h3.section-subtitle,
+h4.section-subtitle, h5.section-subtitle, h6.section-subtitle {
+  margin-top: 0.4em }
+
+h1.title {
+  text-align: center }
+
+h2.subtitle {
+  text-align: center }
+
+hr.docutils {
+  width: 75% }
+
+img.align-left, .figure.align-left, object.align-left, table.align-left {
+  clear: left ;
+  float: left ;
+  margin-right: 1em }
+
+img.align-right, .figure.align-right, object.align-right, table.align-right {
+  clear: right ;
+  float: right ;
+  margin-left: 1em }
+
+img.align-center, .figure.align-center, object.align-center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+table.align-center {
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.align-left {
+  text-align: left }
+
+.align-center {
+  clear: both ;
+  text-align: center }
+
+.align-right {
+  text-align: right }
+
+/* reset inner alignment in figures */
+div.align-right {
+  text-align: inherit }
+
+/* div.align-center * { */
+/*   text-align: left } */
+
+.align-top    {
+  vertical-align: top }
+
+.align-middle {
+  vertical-align: middle }
+
+.align-bottom {
+  vertical-align: bottom }
+
+ol.simple, ul.simple {
+  margin-bottom: 1em }
+
+ol.arabic {
+  list-style: decimal }
+
+ol.loweralpha {
+  list-style: lower-alpha }
+
+ol.upperalpha {
+  list-style: upper-alpha }
+
+ol.lowerroman {
+  list-style: lower-roman }
+
+ol.upperroman {
+  list-style: upper-roman }
+
+p.attribution {
+  text-align: right ;
+  margin-left: 50% }
+
+p.caption {
+  font-style: italic }
+
+p.credits {
+  font-style: italic ;
+  font-size: smaller }
+
+p.label {
+  white-space: nowrap }
+
+p.rubric {
+  font-weight: bold ;
+  font-size: larger ;
+  color: maroon ;
+  text-align: center }
+
+p.sidebar-title {
+  font-family: sans-serif ;
+  font-weight: bold ;
+  font-size: larger }
+
+p.sidebar-subtitle {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+p.topic-title {
+  font-weight: bold }
+
+pre.address {
+  margin-bottom: 0 ;
+  margin-top: 0 ;
+  font: inherit }
+
+pre.literal-block, pre.doctest-block, pre.math, pre.code {
+  margin-left: 2em ;
+  margin-right: 2em }
+
+pre.code .ln { color: grey; } /* line numbers */
+pre.code, code { background-color: #eeeeee }
+pre.code .comment, code .comment { color: #5C6576 }
+pre.code .keyword, code .keyword { color: #3B0D06; font-weight: bold }
+pre.code .literal.string, code .literal.string { color: #0C5404 }
+pre.code .name.builtin, code .name.builtin { color: #352B84 }
+pre.code .deleted, code .deleted { background-color: #DEB0A1}
+pre.code .inserted, code .inserted { background-color: #A3D289}
+
+span.classifier {
+  font-family: sans-serif ;
+  font-style: oblique }
+
+span.classifier-delimiter {
+  font-family: sans-serif ;
+  font-weight: bold }
+
+span.interpreted {
+  font-family: sans-serif }
+
+span.option {
+  white-space: nowrap }
+
+span.pre {
+  white-space: pre }
+
+span.problematic {
+  color: red }
+
+span.section-subtitle {
+  /* font-size relative to parent (h1..h6 element) */
+  font-size: 80% }
+
+table.citation {
+  border-left: solid 1px gray;
+  margin-left: 1px }
+
+table.docinfo {
+  margin: 2em 4em }
+
+table.docutils {
+  margin-top: 0.5em ;
+  margin-bottom: 0.5em }
+
+table.footnote {
+  border-left: solid 1px black;
+  margin-left: 1px }
+
+table.docutils td, table.docutils th,
+table.docinfo td, table.docinfo th {
+  padding-left: 0.5em ;
+  padding-right: 0.5em ;
+  vertical-align: top }
+
+table.docutils th.field-name, table.docinfo th.docinfo-name {
+  font-weight: bold ;
+  text-align: left ;
+  white-space: nowrap ;
+  padding-left: 0 }
+
+/* "booktabs" style (no vertical lines) */
+table.docutils.booktabs {
+  border: 0px;
+  border-top: 2px solid;
+  border-bottom: 2px solid;
+  border-collapse: collapse;
+}
+table.docutils.booktabs * {
+  border: 0px;
+}
+table.docutils.booktabs th {
+  border-bottom: thin solid;
+  text-align: left;
+}
+
+h1 tt.docutils, h2 tt.docutils, h3 tt.docutils,
+h4 tt.docutils, h5 tt.docutils, h6 tt.docutils {
+  font-size: 100% }
+
+ul.auto-toc {
+  list-style-type: none }
+
+</style>
+</head>
+<body>
+<div class="document" id="smtp">
+<h1 class="title">Протокол SMTP</h1>
+
+<p>Хотите узнать, как работает SMTP?</p>
+<p>Процесс обмена электронными письмами осуществляется с помощью различных протоколов электронной почты, и многие системы используют SMTP (simple mail transfer protocol) для отправки электронных писем.</p>
+<p>Из этой статьи можно узнать, что такое SMTP, как он работает и чем отличается от других протоколов, а также познакомиться с его командами.</p>
+<div class="section" id="id1">
+<h1>Содержание:</h1>
+<ul class="simple">
+<li><a class="reference internal" href="#id2">Что такое SMTP?</a></li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="#id3">Как работает SMTP?</a></dt>
+<dd><ul class="first last">
+<li>Основы SMTP</li>
+<li>MTA и SMTP</li>
+<li>Что такое ретрансляция SMTP?</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="#id9">Чем SMTP отличается от других протоколов электронной почты?</a></dt>
+<dd><ul class="first last">
+<li>Что такое POP?</li>
+<li>Что такое IMAP?</li>
+<li>SMTP против POP и IMAP</li>
+</ul>
+</dd>
+</dl>
+</li>
+<li><a class="reference internal" href="#id10">Команды SMTP</a></li>
+<li><dl class="first docutils">
+<dt><a class="reference internal" href="#smtp-gmail-outlook">SMTP для Gmail и Outlook</a></dt>
+<dd><ul class="first last">
+<li>SMTP для Gmail</li>
+<li>SMTP для Outlook</li>
+</ul>
+</dd>
+</dl>
+</li>
+</ul>
+<p>Давайте начнем.</p>
+</div>
+<div class="section" id="id2">
+<h1>Что такое SMTP?</h1>
+<p>Простой протокол передачи почты (simple mail transfer protocol, SMTP) — это протокол электронной почты, используемый для отправки сообщений с учетной записи электронной почты на один или несколько адресов. Это часть прикладного уровня сетевой модели TCP/IP (transmission control protocol/internet protocol, протокол управления передачей/интернет-протокол).</p>
+<p>Что такое протокол?</p>
+<p>Протокол электронной почты — это набор правил, которые формализуют обмен информацией между учетными записями. Хотя сегодня существует несколько различных протоколов, SMTP является одним из наиболее широко используемых.</p>
+</div>
+<div class="section" id="id3">
+<h1>Как работает SMTP?</h1>
+<p>Давайте кратко рассмотрим, как работает протокол электронной почты SMTP.</p>
+<div class="section" id="id4">
+<h2>Основы SMTP</h2>
+<div class="section" id="id5">
+<h3>Как SMTP отправляет электронную почту?</h3>
+<p>Когда пользователь хочет отправить электронное письмо, почтовый клиент (почтовое приложение, такое как Gmail, Yahoo или Outlook) открывает SMTP-соединение с SMTP-сервером домена. Он находит SMTP-сервер домена, выполняя поиск MX-записи (mail exchange) в домене.</p>
+<p>Как только SMTP-соединение (использующее TCP-соединение) установлено с почтовым сервером, начинается сеанс SMTP.</p>
+<p>Во время этого сеанса SMTP-клиент взаимодействует с исходящим сервером, используя различные SMTP-команды, например, HELO (идентифицирует клиента на сервере). Команда SMTP состоит из буквенных символов, а сервер отвечает числовыми кодами.</p>
+<p>Во время TCP-соединения почтовый клиент передает на сервер следующую информацию:</p>
+<ul class="simple">
+<li>Адрес электронной почты отправителя</li>
+<li>Электронная почта получателя</li>
+<li>Тело сообщения и вложения</li>
+</ul>
+<p>Затем агент пересылки почты (MTA, mail transfer agent) проверяет, принадлежат ли адреса электронной почты отправителя и получателя одному и тому же домену. Если это так, электронное письмо немедленно отправляется в папку «Входящие» получателя, и его можно получить через POP3 или IMAP.</p>
+<p>Однако, если домены отправителя и получателя разные, сервер свяжется с системой доменных имен (Domain Name System, DNS) и получит запись MX принимающего домена через поиск DNS. Запись MX указывает на почтовый сервер получателя. Затем сервер отправителя подключается к серверу получателя и передает почту.</p>
+<p>Принимающий SMTP-сервер проверяет входящую почту. Как только домен и имя пользователя распознаны, сообщение электронной почты пересылается на почтовый сервер POP3 или IMAP получателя.</p>
+</div>
+<div class="section" id="id6">
+<h3>Несколько способов работы SMTP</h3>
+<p>Модель Simple Mail Transfer Protocol состоит из двух типов:</p>
+<ul class="simple">
+<li>Store-and-forward</li>
+<li>End-to-end</li>
+</ul>
+<p>Метод store-and-forward используется для связи с адресами электронной почты внутри организации, такими как адреса электронной почты коллег или учащихся, чьи адреса электронной почты являются частью одного и того же домена (например, &#64;company.com или &#64;school.edu).</p>
+<p>End-to-end метод используется для исходящих сообщений на адреса, основанные на почтовом сервере за пределами организации.</p>
+</div>
+<div class="section" id="id7">
+<h3>Какие типы электронных писем вы можете отправлять с помощью SMTP?</h3>
+<p>SMTP может передавать только текст — он не может отправлять изображения или любые другие вложения. Однако вы можете легко использовать протокол SMTP для отправки электронных писем с вложениями.</p>
+<p>Как?</p>
+<p>SMTP использует дополнительный протокол, известный как Multipurpose Internet Mail Extension или MIME, для кодирования всех нетекстовых данных в текстовый формат.</p>
+<p>Все ваши изображения и другие вложения будут преобразованы в текст перед отправкой через SMTP. И как только они прибывают в пункт назначения, они преобразуются обратно в исходный формат.</p>
+</div>
+</div>
+<div class="section" id="mta-smtp">
+<h2>MTA и SMTP</h2>
+<p>Ранее в этой статье было упомянуто, что MTA играет роль в отправке электронной почты через SMTP.</p>
+<p>Так чем же MTA отличается от SMTP-сервера?</p>
+<p>Агент передачи почты (Mail Transferring Agent, MTA) — это программное обеспечение, устанавливаемое на SMTP-сервере. Он связывается с агентом отправки почты (Mail Submission Agent, MSA) для получения электронных писем, отправленных агентом пользователя почты (Mail User Agent, MUA), который является почтовым клиентом. (Gmail и Outlook являются примерами почтовых клиентов.)</p>
+<p>Затем MTA передают эти электронные письма другим MTA, если получатель не является локальным получателем (т. e. не является частью того же домена). Наконец, MTA доставляет электронную почту агенту доставки почты (Mail Delivery Agent, MDA), который отправляет электронную почту получающему почтовому клиенту (агенту пользователя).</p>
+<div class="figure align-center">
+<img alt="https://blogcdn.gmass.co/blog/wp-content/uploads/2020/08/smtp2.png" src="https://blogcdn.gmass.co/blog/wp-content/uploads/2020/08/smtp2.png" />
+</div>
+</div>
+<div class="section" id="id8">
+<h2>Что такое ретрансляция SMTP?</h2>
+<p>SMTP Relay — это процесс передачи электронной почты между SMTP-серверами. Ретрансляция SMTP состоит из MTA и MDA и обычно возникает, когда адреса электронной почты отправителя и получателя принадлежат разным доменам.</p>
+<p>Использование службы SMTP Relay направляет ваши исходящие сообщения в папку «Входящие» получателя.</p>
+<p>Термин «Хост SMTP» относится только к серверу, через который отправляется электронная почта, в то время как ретрансляция SMTP выполняется на этом сервере.</p>
+</div>
+</div>
+<div class="section" id="id9">
+<h1>Чем SMTP отличается от других протоколов электронной почты?</h1>
+<p>Помните, что SMTP — не единственный протокол электронной почты.</p>
+<p>Два других популярных протокола электронной почты, которые используются во всем мире, — это POP и IMAP.</p>
+<p>Но что делают эти почтовые протоколы и чем они отличаются от SMTP?</p>
+<p>Давайте посмотрим, что такое POP и IMAP и чем SMTP отличается от них обоих:</p>
+<div class="section" id="pop">
+<h2>Что такое POP?</h2>
+<p>Почтовый протокол (Post Office Protocol, POP) используется для получения входящих сообщений электронной почты. Последняя версия этого протокола электронной почты известна как POP3. Он хранит электронные сообщения на устройстве.</p>
+</div>
+<div class="section" id="imap">
+<h2>Что такое IMAP?</h2>
+<p>Протокол доступа к сообщениям в Интернете (Internet Message Access Protocol, IMAP) — это еще один протокол электронной почты, который используется для получения входящей почты.</p>
+<p>IMAP более популярен, чем принимающий сервер POP, поскольку он хранит все сообщения электронной почты на облачном сервере. Таким образом, пользователь может проверять свою электронную почту на любом устройстве.</p>
+<p>А поскольку IMAP — это облачный протокол электронной почты, он более эффективен и быстр, чем POP.</p>
+</div>
+<div class="section" id="smtp-pop-imap">
+<h2>SMTP против POP и IMAP</h2>
+<p>Так чем же POP и IMAP отличаются от SMTP?</p>
+<p>Все, что вам нужно помнить, это то, что SMTP — это протокол электронной почты, используемый для исходящей почты, а POP и IMAP — это протоколы электронной почты, используемые для получения входящей электронной почты.</p>
+</div>
+</div>
+<div class="section" id="id10">
+<h1>Команды SMTP</h1>
+<p>SMTP — это протокол ASCII. Он основан на клиент-серверной модели. Для него используется TCP-порт номер 25. Поэтому электронная почта доставляется от источника к месту назначения, если отправитель установил TCP на порт 25 получателя. Для отправки почты в системе должен быть клиентский MTA, а для получения почты в системе должен быть серверный MTA. SMTP передает это сообщение от клиентского MTA к серверному MTA. Для отправки почты SMTP используется два раза: один раз между отправителем и почтовым сервером отправителя, а другой — между двумя почтовыми серверами.</p>
+<p>SMTP-команды команды отправляются с клиента на сервер. Каждая команда состоит из ключевого слова, за которым следует ноль или более аргументов. Это означает, что есть также некоторые ключевые слова, которые не содержат аргументов. Формат команды следующий:</p>
+<p>Keywords : argument(s)</p>
+<p>Существует 14 различных SMTP-команд, которые приведены в следующей таблице:</p>
+<table border="1" class="docutils">
+<colgroup>
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+<col width="20%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Номер команды</th>
+<th class="head">Ключевое слово</th>
+<th class="head">Команда</th>
+<th class="head">Описание</th>
+<th class="head">Использование</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td><ol class="first last arabic simple">
+<li></li>
+</ol>
+</td>
+<td>HELO</td>
+<td>HELO&lt;SP&gt;&lt;domain&gt;&lt;CRLF&gt;</td>
+<td>Cообщает почтовому серверу, что клиент хочет начать почтовую транзакцию. Клиент указывает свое доменное имя после этой команды.</td>
+<td>Обязательно</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="2">
+<li></li>
+</ol>
+</td>
+<td>MAIL</td>
+<td>MAIL&lt;SP&gt;FROM : &lt;reverse-path&gt;&lt;CRLF&gt;</td>
+<td>Указывает отправителя.</td>
+<td>Обязательно</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="3">
+<li></li>
+</ol>
+</td>
+<td>RCPT</td>
+<td>RCPT&lt;SP&gt;TO : &lt;forward-path&gt;&lt;CRLF&gt;</td>
+<td>Указывает получателя.</td>
+<td>Обязательно</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="4">
+<li></li>
+</ol>
+</td>
+<td>DATA</td>
+<td>DATA&lt;CRLF&gt;</td>
+<td>Указывает начало письма.</td>
+<td>Обязательно</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="5">
+<li></li>
+</ol>
+</td>
+<td>QUIT</td>
+<td>QUIT&lt;CRLF&gt;</td>
+<td>Закрывает TCP-соединение.</td>
+<td>Обязательно</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="6">
+<li></li>
+</ol>
+</td>
+<td>RSET</td>
+<td>RSET&lt;CRLF&gt;</td>
+<td>Прерывает текущую почтовую транзакцию, но TCP-соединение остается открытым.</td>
+<td>Рекомендуется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="7">
+<li></li>
+</ol>
+</td>
+<td>VRFY</td>
+<td>VRFY&lt;SP&gt;&lt;string&gt;&lt;CRLF&gt;</td>
+<td>Подтверждение или проверка имени пользователя.</td>
+<td>Рекомендуется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="8">
+<li></li>
+</ol>
+</td>
+<td>NOOP</td>
+<td>NOOP&lt;CRLF&gt;</td>
+<td>Нет операции.</td>
+<td>Рекомендуется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="9">
+<li></li>
+</ol>
+</td>
+<td>TURN</td>
+<td>TURN&lt;CRLF&gt;</td>
+<td>Меняет роли получателя и отправителя.</td>
+<td>Редко используется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="10">
+<li></li>
+</ol>
+</td>
+<td>EXPN</td>
+<td>EXPN&lt;SP&gt;&lt;string&gt;&lt;CRLF&gt;</td>
+<td>Указывает список рассылки, который необходимо расширить.</td>
+<td>Редко используется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="11">
+<li></li>
+</ol>
+</td>
+<td>HELP</td>
+<td>HELP&lt;SP&gt;&lt;string&gt;&lt;CRLF&gt;</td>
+<td>Отправляет в систему определенную документацию.</td>
+<td>Редко используется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="12">
+<li></li>
+</ol>
+</td>
+<td>SEND</td>
+<td>SEND&lt;SP&gt;FROM : &lt;reverse-path&gt;&lt;CRLF&gt;</td>
+<td>Отправляет письмо на терминал.</td>
+<td>Редко используется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="13">
+<li></li>
+</ol>
+</td>
+<td>SOML</td>
+<td>SOML&lt;SP&gt;FROM : &lt;reverse-path&gt;&lt;CRLF&gt;</td>
+<td>Отправляет письмо на терминал, если это возможно; в противном случае на почтовый ящик.</td>
+<td>Редко используется</td>
+</tr>
+<tr><td><ol class="first last arabic simple" start="14">
+<li></li>
+</ol>
+</td>
+<td>SAML</td>
+<td>SAML&lt;SP&gt;FROM : &lt;reverse-path&gt;&lt;CRLF&gt;</td>
+<td>Отправляет письмо на терминал и почтовый ящик.</td>
+<td>Редко используется</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="smtp-gmail-outlook">
+<h1>SMTP для Gmail и Outlook</h1>
+<p>Вот шаги для доступа к электронной почте Gmail и Outlook в любых почтовых клиентах, использующих SMTP.</p>
+<div class="section" id="smtp-gmail">
+<h2>SMTP для Gmail</h2>
+<p>Gmail упрощает доступ к электронной почте из других почтовых клиентов, таких как Microsoft Outlook и Apple Mail. Вот шаги, которые необходимо выполнить, чтобы получить доступ к электронной почте Gmail из любого почтового клиента.</p>
+<ol class="arabic simple">
+<li>В правом верхнем углу выберите «Настройки» &gt; «Просмотреть все настройки».</li>
+<li>Перейдите на вкладку Пересылка и POP/IMAP.</li>
+<li>В разделе «Доступ по IMAP» выберите «Включить IMAP».</li>
+<li>Нажмите «Сохранить изменения».</li>
+<li>Введите необходимую информацию в своем почтовом клиенте в соответствии с таблицей ниже, чтобы получить доступ к электронной почте Gmail.</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Элемент конфигурации</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>Incoming Mail (IMAP) Server</td>
+<td>imap.gmail.com</td>
+</tr>
+<tr><td>Requires SSL</td>
+<td>Да</td>
+</tr>
+<tr><td>Requires TLS</td>
+<td>Да (если есть опция)</td>
+</tr>
+<tr><td>Requires Authentication</td>
+<td>Да</td>
+</tr>
+<tr><td>Port for SSL</td>
+<td>465</td>
+</tr>
+<tr><td>Port for TLS/STARTTLS</td>
+<td>587</td>
+</tr>
+<tr><td>Full Name or Display Name</td>
+<td>Ваше имя</td>
+</tr>
+<tr><td>Account Name, User Name, or Email address</td>
+<td>Ваш адрес электронной почты</td>
+</tr>
+<tr><td>Password</td>
+<td>Ваш пароль от электронной почты</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div class="section" id="smtp-outlook">
+<h2>SMTP для Outlook</h2>
+<p>Вот настройки, которым необходимо следовать, чтобы настроить и получить доступ к электронной почте Outlook в любом почтовом клиенте.</p>
+<ol class="arabic simple">
+<li>Выберите «Настройки» &gt; «Просмотреть все настройки Outlook» &gt; «Почта» &gt; «Синхронизировать электронную почту».</li>
+<li>В разделе POP и IMAP выберите Да в разделе Разрешить устройствам и приложениям использовать POP.</li>
+<li>Нажмите Сохранить.</li>
+<li>Введите необходимую информацию в своем почтовом клиенте в соответствии с таблицей ниже, чтобы получить доступ к электронной почте Gmail.</li>
+</ol>
+<table border="1" class="docutils">
+<colgroup>
+<col width="50%" />
+<col width="50%" />
+</colgroup>
+<thead valign="bottom">
+<tr><th class="head">Элемент конфигурации</th>
+<th class="head">Значение</th>
+</tr>
+</thead>
+<tbody valign="top">
+<tr><td>IMAP server name</td>
+<td>outlook.office365.com</td>
+</tr>
+<tr><td>IMAP port</td>
+<td>993</td>
+</tr>
+<tr><td>IMAP encryption method</td>
+<td>TSL</td>
+</tr>
+<tr><td>POP server name</td>
+<td>outlook.office365.com</td>
+</tr>
+<tr><td>POP port</td>
+<td>995</td>
+</tr>
+<tr><td>POP encryption method</td>
+<td>TSL</td>
+</tr>
+<tr><td>SMTP server name</td>
+<td>smtp-mail.outlook.com</td>
+</tr>
+<tr><td>SMTP port</td>
+<td>587</td>
+</tr>
+<tr><td>SMTP encryption method</td>
+<td>STARTTLS</td>
+</tr>
+</tbody>
+</table>
+<p>Цыганова, Каравашкова, Б06-108, Май 2023</p>
+</div>
+</div>
+</div>
+</body>
+</html>
